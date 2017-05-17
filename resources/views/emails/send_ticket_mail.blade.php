@@ -257,8 +257,8 @@
                   <table border="0" cellpadding="0" cellspacing="0">
                     <tr>
                       <td>
-                        <p>Hallo {{ $user['naam']}},</p>
-                        <p>Uw persoonlijke gegevens</p>
+                        <p>Hallo {{ $user['naam'] }},</p>
+                        <p>Uw gegevens: </p>
                         
                         <ul>
                             <li>Naam:{{ $user['naam'] }} </li> 
@@ -266,39 +266,19 @@
                             <li>Achernaam: {{ $user['achternaam'] }}</li> 
                             <li>Adres: {{ $user['adres'] }}</li>
                             <li>Woonplaats: {{ $user['woonplaats'] }}</li>
+                            <br>
+                            <li>Betaald: &euro; {{ $reservering_ticket['totale_prijs'] }} </li>
+                            <li>Betaalmethode: {{ $reservering_ticket['betaalmethode'] }} </li>
                         </ul>
-
-
-                        <p>Uw reservering gegevens</p>
-
-
-
-                              <ul>
-                              <li>User: {{ $reservering_ticket['user'] }} </li>
-                              <li>Betaalmethode: {{ $reservering_ticket['betaalmethode'] }} </li>
-                              </ul>
-
-
-                                <p> Uw ticket zit in de bijlage</p>
-                        <table border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
-                          <tbody>
-                            <tr>
-                              <td align="left">
-                                <table border="0" cellpadding="0" cellspacing="0">
-                                  <tbody>
-                                    <tr>
-                                      <td> <a href="http://conferentie-dannycao.c9users.io" target="_blank">Terug naar de websites</a> </td>
-                                    </tr>
-                                  </tbody>
-                                </table>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
+                            <p><b>Uw ticket zit in de bijlage!</b></p>
+                      </td>
                     </tr>
-                  </table>
-                </td>
-              </tr>
+                  </tbody>
+                </table>
+            </tr>
+          </table>
+        </td>
+      </tr>
 
               <!-- END MAIN CONTENT AREA -->
               </table>

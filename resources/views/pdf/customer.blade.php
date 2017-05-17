@@ -29,9 +29,7 @@
              <li>Ticket:</li>
              <li>{{ $ticketType->ticket_naam}}</li>
             
-            <!-- <li><img src="src/tickets/{{ $test['id'] }}.jpg"></li>-->
-             <li><img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(130)->generate($test['ticketcode'])) !!} "></li>
-                 {{ $test['id'] }} 
+             <li><img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(250)->generate($test['ticketcode'])) !!} "></li>
               <hr>
          @endif     
         </ul>     
@@ -49,9 +47,7 @@
              <li>{{ $maaltijdType->maaltijd_naam }}</li>
              <li>{{ $maaltijd['dag'] }}
           
-            <!-- <li><img src="src/maaltijden/{{ $maaltijd['id'] }}.jpg"></li>-->
-             <li><img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(130)->generate($maaltijd['maaltijdcode'])) !!} "></li>
-                 {{ $maaltijd['id'] }}
+             <li><img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(250)->generate($maaltijd['maaltijdcode'])) !!} "></li>
               <hr>
         @endif              
         </ul>     
