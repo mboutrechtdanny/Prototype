@@ -196,10 +196,62 @@ class ReserveringController extends Controller
             ->where('id', $post['ticket'][$i])
             ->decrement('aantal_beschikbaar');
             
-                  $ticketTests2[] = [
-                             'ticket_type' => $post['ticket'][$i],
-                             'ticketcode' => uniqid('ti')
-                             ];
+                if($post['ticket'][$i] == 1) {
+                    $ticket_dag = "vrijdag";
+                    $ticketTests2[] = [
+                    'ticket_type' => $post['ticket'][$i],
+                    'dag' => $ticket_dag,
+                    'ticketcode' => uniqid('ti')
+                        ];
+                }
+                
+                
+                else if($post['ticket'][$i] == 2) {
+                    $ticket_dag = "zaterdag";
+                    
+                    $ticketTests2[] = [
+                    'ticket_type' => $post['ticket'][$i],
+                    'dag' => $ticket_dag,
+                    'ticketcode' => uniqid('ti')
+                        ];
+                }
+                
+                else if($post['ticket'][$i] == 3) {
+                    $ticket_dag = "zondag";
+                    
+                    $ticketTests2[] = [
+                    'ticket_type' => $post['ticket'][$i],
+                    'dag' => $ticket_dag,
+                    'ticketcode' => uniqid('ti')
+                        ];
+                }
+                
+                else if($post['ticket'][$i] == 4) {
+                    $ticket_dag = "weekend";
+                    
+                    $ticketTests2[] = [
+                    'ticket_type' => $post['ticket'][$i],
+                    'dag' => $ticket_dag,
+                    'ticketcode' => uniqid('ti')
+                        ];
+                }
+                
+                else if($post['ticket'][$i] == 5) {
+                    $ticket_dag = "passe-partout";
+                    
+                    $ticketTests2[] = [
+                    'ticket_type' => $post['ticket'][$i],
+                    'dag' => $ticket_dag,
+                    'ticketcode' => uniqid('ti')
+                        ];
+                }
+                
+                else {
+                        $ticketTests2[] = [
+                            'ticket_type' => $post['ticket'][$i],
+                            'ticketcode' => uniqid('ti')
+                        ];
+                }
             }
             
             
