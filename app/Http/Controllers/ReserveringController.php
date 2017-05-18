@@ -302,6 +302,13 @@ class ReserveringController extends Controller
                 
             $ticketTypes = DB::table('ticket_types')->get();
             
+            $reservation = Reservering::create([
+                'user' => $usertest,
+                'betaalmethode' => $post['betaalmethode'],
+                'totale_prijs' => $post['totaalReservering'],
+                    'ticket' => $ticketTests2
+            ]);
+            
             $pdf = PDF::loadView('pdf.customer',[
                 'reserveringtest' => $reserveringtest,
                 'user' => $usertest,
