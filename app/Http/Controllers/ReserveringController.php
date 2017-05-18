@@ -199,7 +199,6 @@ class ReserveringController extends Controller
                 if($post['ticket'][$i] == 1) {
                     $ticket_dag = "vrijdag";
                     $ticketTests2[] = [
-                    'ticket_type' => $post['ticket'][$i],
                     'dag' => $ticket_dag,
                     'ticketcode' => uniqid('ti')
                         ];
@@ -210,7 +209,6 @@ class ReserveringController extends Controller
                     $ticket_dag = "zaterdag";
                     
                     $ticketTests2[] = [
-                    'ticket_type' => $post['ticket'][$i],
                     'dag' => $ticket_dag,
                     'ticketcode' => uniqid('ti')
                         ];
@@ -220,7 +218,6 @@ class ReserveringController extends Controller
                     $ticket_dag = "zondag";
                     
                     $ticketTests2[] = [
-                    'ticket_type' => $post['ticket'][$i],
                     'dag' => $ticket_dag,
                     'ticketcode' => uniqid('ti')
                         ];
@@ -230,7 +227,6 @@ class ReserveringController extends Controller
                     $ticket_dag = "weekend";
                     
                     $ticketTests2[] = [
-                    'ticket_type' => $post['ticket'][$i],
                     'dag' => $ticket_dag,
                     'ticketcode' => uniqid('ti')
                         ];
@@ -240,7 +236,6 @@ class ReserveringController extends Controller
                     $ticket_dag = "passe-partout";
                     
                     $ticketTests2[] = [
-                    'ticket_type' => $post['ticket'][$i],
                     'dag' => $ticket_dag,
                     'ticketcode' => uniqid('ti')
                         ];
@@ -262,16 +257,9 @@ class ReserveringController extends Controller
                 {
                     
                      $maaltijdTests2[] = [
-                    'maaltijd_type' => $post["maaltijd"][$i],
                     'dag' => $post['dag'][$i],
                     'maaltijdcode' => uniqid('ma')
                      ];
-                    
-                    
-            $maaltijdTypes = DB::table('maaltijd_types')->get();
-            $ticketTypes = DB::table('ticket_types')->get();
-            
-            
             
             $reservation = Reservering::create([
                 'user' => $usertest,
@@ -286,9 +274,7 @@ class ReserveringController extends Controller
                 'reserveringtest' => $reservation,
                 'user' => $usertest,
                 'tickettest' => $ticketTests2,
-                'maaltijdtest' => $maaltijdTests2,
-                'ticketTypes' => $ticketTypes,
-                'maaltijdTypes' => $maaltijdTypes,
+                'maaltijdtest' => $maaltijdTests2
                 ]);
             
             
@@ -312,8 +298,7 @@ class ReserveringController extends Controller
             $pdf = PDF::loadView('pdf.customer',[
                 'reserveringtest' => $reserveringtest,
                 'user' => $usertest,
-                'tickettest' => $ticketTests2,
-                'ticketTypes' => $ticketTypes,
+                'tickettest' => $ticketTests2
                 ]);
             
             

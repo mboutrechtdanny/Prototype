@@ -22,35 +22,24 @@
 </table>   
 
         @foreach($tickettest as $test)
-        @foreach($ticketTypes as $ticketType)
-        <ul style="list-style-type: none">
-         @if($test['ticket_type'] == $ticketType->id)    
-          <hr>
-             <li>Ticket:</li>
-             <li>{{ $ticketType->ticket_naam}}</li>
-            
-             <li><img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(250)->generate($test['ticketcode'])) !!} "></li>
+            <ul style="list-style-type: none">
               <hr>
-         @endif     
-        </ul>     
-       
-          @endforeach    
-          @endforeach
+                 <li>Ticket:</li>
+                 <li>{{ $test['dag'] }}</li>
+                 <li><img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(250)->generate($test['ticketcode'])) !!} "></li>
+                  <hr>
+            </ul>     
+        @endforeach
           
-@if(isset($maaltijdtest) )       
-          @foreach($maaltijdtest as $maaltijd)
-          @foreach($maaltijdTypes as $maaltijdType)
-        <ul style="list-style-type: none">
-         @if($maaltijd['maaltijd_type'] == $maaltijdType->id)
-          <hr>
-             <li>Maaltijd:</li>
-             <li>{{ $maaltijdType->maaltijd_naam }}</li>
-             <li>{{ $maaltijd['dag'] }}
-          
-             <li><img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(250)->generate($maaltijd['maaltijdcode'])) !!} "></li>
-              <hr>
-        @endif              
-        </ul>     
-          @endforeach    
-          @endforeach
-@endif
+        @if(isset($maaltijdtest) )       
+            @foreach($maaltijdtest as $maaltijd)
+                <ul style="list-style-type: none">
+                    <hr>
+                    <li>Maaltijd:</li>
+                    <li>{{ $maaltijd['dag'] }}
+        
+                    <li><img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(250)->generate($maaltijd['maaltijdcode'])) !!} "></li>
+                    <hr>
+                </ul>
+            @endforeach
+        @endif
