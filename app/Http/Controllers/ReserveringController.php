@@ -36,7 +36,10 @@ class ReserveringController extends Controller
         die();*/
 
         $users = DB::connection('mongodb')->collection('reservering')->get();
+
+
         return view('mongo')->with(['users'=>$users]);
+        
     }
     
     public function getBijeenkomst()

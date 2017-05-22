@@ -10,8 +10,6 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
-
     Route::get('/', function() {
       return view('index'); 
     })->name('index');
@@ -63,7 +61,6 @@ Route::group(['prefix' => 'reservering'], function() {
     Route::post('/postBijeenkomst', [
         'uses' => 'ReserveringController@postBijeenkomst',
         'as' => 'postbijeenkomst'
-        
         ]);    
         
 });    
@@ -77,8 +74,6 @@ Route::group(['prefix' => 'reservering'], function() {
         'uses' => 'ReserveringController@postTest',
         'as' => 'postTest'
         ]); 
-
-
 
 
 
@@ -102,9 +97,6 @@ Route::group(['prefix' => 'aanmelding'], function() {
         ]);    
         
         
-        
-        
-    
     Route::get('/vervolg', function() {
         return view('layouts.aanmelden.vervolg');
     })->name('vervolg');
