@@ -28,11 +28,21 @@
   </tr>
   <tr>
     <th>betaalmethode</th>
-    <th>totale prijs</th> 
+    <th>totale prijs</th>
   </tr>
   <tr>
     <td>{{ $user['betaalmethode'] }}</td>
     <td> &euro; {{ $user['totale_prijs'] }}</td>
+    
+    @foreach( $user['ticket'] as $tick )
+    <td><b>ticket:</b> {{ $tick['dag'] }}</td>
+    <td><b>maaltijd:</b> {{ $tick['ticketcode'] }}</td>
+    @endforeach
+    
+    @foreach( $user['maaltijden'] as $maal)
+    <td><b>maaltijd:</b> {{  $maal['dag'] }}</td>
+    <td><b>maaltijdcode:</b> {{ $maal['maaltijdcode'] }}</td>
+    @endforeach
  </tr>
 </table>
 </div>
