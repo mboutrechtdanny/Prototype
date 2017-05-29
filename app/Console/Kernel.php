@@ -14,6 +14,10 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         // Commands\Inspire::class,
+        Commands\MysqlDump::class,
+        Commands\MysqlRestore::class,
+        Commands\MongoDump::class,
+        Commands\MongoRestore::class
     ];
 
     /**
